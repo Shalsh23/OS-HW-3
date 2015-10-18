@@ -4,10 +4,17 @@
 #include <signal.h>
 #include <pthread.h>
 
-int n = 2;
+int n = 5;
 int counter = 0;
-pthread_t t[2];
+pthread_t t[5];
 pthread_mutex_t counter_lock;
+struct sigaction act;
+
+void sighandler(int signum, siginfo_t *info, void *ptr)
+{
+	printf("\n received signal %d\n", signum);
+	exit(2);
+}
 
 barrier_wait()
 {
@@ -16,18 +23,19 @@ barrier_wait()
 	printf("\ncounter=%d\n",counter);
 	pthread_mutex_unlock(&counter_lock);
 
-	int caught;
-	sigset_t sig;
-	sigemptyset(&sig);
-	sigaddset(&sig, SIGINT);
+	// int caught;
+	// sigset_t sig;
+	// sigemptyset(&sig);
+	// sigaddset(&sig, SIGINT);
 
 	if(counter != n)
 	{
 		for(;;)
 		{
-			int s = sigwait(&sig, &caught);
+			// int s = sigwait(&sig, &caught);
+			int s = sigaction(SIGINT, &act, NULL);
 
-			if(caught == 2)
+			if(s == 2)
 			{
 				printf("\ncaught the signal\n");
 				fflush(stdout);
@@ -59,15 +67,6 @@ void *f()
 	return;
 }
 
-// void *f2()
-// {
-// 	printf("\nentering f2\n");
-// 	barrier_wait();
-// 	printf("barrier reached\n");
-// 	return;
-// }
-
-
 
 int main()
 {
@@ -75,10 +74,14 @@ int main()
 
 	pthread_mutex_init(&counter_lock, NULL);
 
-	sigset_t set;
-	sigemptyset(&set);
-	sigaddset(&set, SIGINT);
-	pthread_sigmask(SIG_BLOCK, &set, NULL);
+	memset(&act, 0, sizeof(act));
+	act.sa_sigaction = sighandler;
+	act.sa_flags = SA_SIGINFO;
+
+	// sigset_t set;
+	// sigemptyset(&set);
+	// sigaddset(&set, SIGINT);
+	// pthread_sigmask(SIG_BLOCK, &set, NULL);
 
 	int i;
 	for(i=0; i<n; i++)
