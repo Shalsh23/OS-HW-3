@@ -4,16 +4,26 @@
 #include <signal.h>
 #include <pthread.h>
 
-int n = 5;
+int n = 3;
 int counter = 0;
-pthread_t t[5];
+pthread_t t[3];
 pthread_mutex_t counter_lock;
 struct sigaction act;
+int sigrecieved[3];
 
 void sighandler(int signum, siginfo_t *info, void *ptr)
 {
 	printf("\n received signal %d\n", signum);
-	exit(2);
+	pthread_t id = pthread_self();
+	int i,j;
+	for(i=0; i<n; i++)
+	{
+		if(t[i] == id)
+			j = i;
+	}
+	sigrecieved[j] = 1;
+	
+	return;
 }
 
 barrier_wait()
@@ -22,6 +32,13 @@ barrier_wait()
 	counter++;
 	printf("\ncounter=%d\n",counter);
 	pthread_mutex_unlock(&counter_lock);
+	pthread_t curr_tid = pthread_self();
+	int i,k;
+	for(i=0; i<n; i++)
+	{
+		if(t[i] == curr_tid)
+			k = i;
+	}
 
 	// int caught;
 	// sigset_t sig;
@@ -33,9 +50,9 @@ barrier_wait()
 		for(;;)
 		{
 			// int s = sigwait(&sig, &caught);
-			int s = sigaction(SIGINT, &act, NULL);
+			int s = sigaction(SIGUSR2, &act, NULL);
 
-			if(s == 2)
+			if(sigrecieved[k]==1)
 			{
 				printf("\ncaught the signal\n");
 				fflush(stdout);
@@ -52,7 +69,7 @@ barrier_wait()
 		{
 			printf("\nwaking up everyone\n");
 			fflush(stdout);
-			pthread_kill(t[j],SIGINT);	
+			pthread_kill(t[j],SIGUSR2);	
 		}
 	}
 	
