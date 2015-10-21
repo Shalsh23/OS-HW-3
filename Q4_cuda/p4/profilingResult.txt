@@ -1,0 +1,217 @@
+loadtime = 329
+start preparing tokens.
+malloc is done.
+preparing time: 10464
+Running kernel, cnt = 4014 
+token_start = 0, token_count = 283
+token_start = 283, token_count = 459
+token_start = 742, token_count = 59
+token_start = 801, token_count = 90
+token_start = 891, token_count = 87
+token_start = 978, token_count = 103
+token_start = 1081, token_count = 108
+token_start = 1189, token_count = 613
+token_start = 1802, token_count = 85
+token_start = 1887, token_count = 102
+token_start = 1989, token_count = 407
+token_start = 2396, token_count = 116
+token_start = 2512, token_count = 75
+token_start = 2587, token_count = 286
+token_start = 2873, token_count = 122
+token_start = 2995, token_count = 285
+token_start = 3280, token_count = 142
+token_start = 3422, token_count = 122
+token_start = 3544, token_count = 215
+token_start = 3759, token_count = 255
+prep token time = 369
+Allocating remote memory size = 8960 K bytes for hash_token_sub_tables
+Allocating remote memory size = 1680 K bytes for hash_token_tables.
+Allocating remote memory size = 448 K bytes for global occurence table.
+total kernel time = 5748
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.103971, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.094949, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.082721, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.080515, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt
+0.074736, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.068180, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.066376, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.041116, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+0.038951, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.161515, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+0.073023, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.068180, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.060414, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.046959, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.035309, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt
+0.032022, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.029150, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.022755, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt
+0.143699, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.080515, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.039808, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt
+0.035714, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.032962, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.029998, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.023912, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.022755, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.018545, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt
+0.079953, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.056293, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.039808, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt
+0.038951, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.035533, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.035309, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.032897, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.032353, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+0.029105, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.079953, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt
+0.076519, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.066376, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.056795, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.042652, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.034768, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.029998, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt
+0.029150, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.025914, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.082721, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.081562, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.070779, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.065052, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.060414, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.056795, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.056293, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt
+0.053378, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+0.032962, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.143699, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article04.txt
+0.120868, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article01.txt
+0.094949, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.070779, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.052325, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.047801, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.046959, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.042652, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.035533, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article09.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.103971, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.073023, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.065522, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.065522, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+0.161515, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article02.txt
+0.112212, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.055855, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.053378, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.043813, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt
+0.042249, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article02.txt
+0.041125, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article04.txt
+0.041116, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.039990, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article08.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.112212, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article07.txt
+0.081562, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article08.txt
+0.076519, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article05.txt
+0.076331, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article04.txt
+0.074736, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article01.txt
+0.062463, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article02.txt
+0.053434, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article06.txt
+0.052325, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.036049, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article01.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article01.txt
+0.318896, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article03.txt
+0.120868, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article10.txt
+0.081692, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article09.txt
+0.080425, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article08.txt
+0.076296, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article07.txt
+0.070038, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article04.txt
+0.070027, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.070027, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article02.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article02.txt
+0.187540, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.187540, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article04.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article04.txt
+0.091198, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article02.txt
+0.076331, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Airline Safety/article03.txt
+0.070038, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article01.txt
+0.068441, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt
+0.066252, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article03.txt
+0.060568, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.060568, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article09.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article09.txt
+0.998537, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article08.txt
+0.262504, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article03.txt
+0.104362, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt
+0.096858, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.096858, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article08.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article08.txt
+0.998537, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article09.txt
+0.262888, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article03.txt
+0.104515, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt
+0.097000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.097000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt
+0.179702, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.179702, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article07.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article07.txt
+0.116642, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article10.txt
+0.096079, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article08.txt
+0.095938, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article09.txt
+0.085826, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.085826, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+
+/home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article03.txt : 
+1.000000, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article03.txt
+0.318896, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article01.txt
+0.262888, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article08.txt
+0.262504, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article09.txt
+0.080399, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article05.txt
+0.080399, /home/yzhang25/project/papers/accelerate/codes/tfidf/cuda_progs/src/resources/test-docs/Amphetamine/article06.txt
+cvtime = 559252

@@ -1,0 +1,242 @@
+nvcc -o cuda_prog load_parser_kernel.cu Main.cpp Parser.cpp StemmingProcessor.cpp StopWordProcessor.cpp cutil.cpp cmd_arg_reader.cpp stopwatch.cpp stopwatch_linux.cpp bank_checker.cpp -I. -I/usr/local/cuda/include -Iinc -I/ncsu/gcc346/include/c++/3.4.6/backward -L/usr/local/cuda/lib64 -L/ncsu/gcc346/lib -lcuda -lcudart -lGL -lGLU -DUNIX
+./parser_kernel.cu(73): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(74): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(91): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(98): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(99): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(115): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(116): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(117): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(147): warning: conversion from a string literal to "char *" is deprecated
+
+./parser_kernel.cu(312): warning: variable "tokenLength" was declared but never referenced
+
+./parser_kernel.cu(341): error: expected a ";"
+
+./parser_kernel.cu(384): warning: parsing restarts here after previous syntax error
+
+./parser_kernel.cu(385): error: identifier "bucket" is undefined
+
+./parser_kernel.cu(307): warning: variable "token" was declared but never referenced
+
+./parser_kernel.cu(396): error: this declaration has no storage class or type specifier
+
+./parser_kernel.cu(396): error: expected a ";"
+
+./parser_kernel.cu(397): error: expected a declaration
+
+./parser_kernel.cu(400): warning: parsing restarts here after previous syntax error
+
+./parser_kernel.cu(401): error: identifier "tokens_count" is undefined
+
+./parser_kernel.cu(403): error: declaration is incompatible with overloaded function "index"
+/usr/include/string.h(469): here
+
+./parser_kernel.cu(404): error: expected a declaration
+
+./parser_kernel.cu(410): error: expected a declaration
+
+./parser_kernel.cu(416): warning: parsing restarts here after previous syntax error
+
+./parser_kernel.cu(419): error: this declaration has no storage class or type specifier
+
+./parser_kernel.cu(419): error: identifier "hash_doc_token_sub_tables" is undefined
+
+./parser_kernel.cu(420): error: this declaration has no storage class or type specifier
+
+./parser_kernel.cu(420): error: variable "hash_doc_token_sub_table" has already been defined
+
+./parser_kernel.cu(420): error: expected a ";"
+
+./parser_kernel.cu(421): error: expected a declaration
+
+./parser_kernel.cu(434): warning: parsing restarts here after previous syntax error
+
+./parser_kernel.cu(435): error: expected a declaration
+
+./parser_kernel.cu(479): warning: parsing restarts here after previous syntax error
+
+./parser_kernel.cu(480): error: expected a declaration
+
+./parser_kernel.cu(482): error: expected a declaration
+
+./parser_kernel.cu(539): warning: parsing restarts here after previous syntax error
+
+./parser_kernel.cu(541): error: this declaration has no storage class or type specifier
+
+./parser_kernel.cu(541): error: expected a ";"
+
+./parser_kernel.cu(542): error: expected a declaration
+
+./parser_kernel.cu(545): error: explicit type is missing ("int" assumed)
+
+./parser_kernel.cu(545): error: cannot overload functions distinguished by return type alone
+
+./parser_kernel.cu(549): error: expected a declaration
+
+./parser_kernel.cu(561): warning: parsing restarts here after previous syntax error
+
+./parser_kernel.cu(563): error: expected a declaration
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/functexcept.h(91): error: expected a declaration
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h(75): error: __numeric_traits_integer is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h(123): error: __conditional_type is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h(124): error: identifier "__numeric_traits_integer" is undefined
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h(124): error: type name is not allowed
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h(123): error: not a class or struct name
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h(125): error: class or struct definition is missing
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h(128): error: expected a declaration
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(146): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(146): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(146): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(152): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(152): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(152): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(159): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(159): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(159): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(165): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(165): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(165): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(171): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(171): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(171): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(177): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(177): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(177): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(214): error: pair is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h(259): error: expected a declaration
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h(111): error: identifier "_Distance" is undefined
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h(113): error: identifier "_Pointer" is undefined
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h(115): error: identifier "_Reference" is undefined
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h(116): error: expected a declaration
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h(137): error: identifier "random_access_iterator_tag" is undefined
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h(147): error: identifier "random_access_iterator_tag" is undefined
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h(165): error: expected a declaration
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(278): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(279): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(278): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(284): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(285): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(284): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(290): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(291): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(290): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(296): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(297): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(296): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(302): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(303): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(302): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(308): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(309): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(308): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(313): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(314): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(315): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(314): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(319): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(320): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(321): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(320): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(328): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(329): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(328): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(334): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(335): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(334): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(340): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(341): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(340): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(346): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(347): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(346): error: nonmember operator requires a parameter with class or enum type
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(352): error: reverse_iterator is not a template
+
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h(353): error: reverse_iterator is not a template
+
+Error limit reached.
+100 errors detected in the compilation of "/tmp/tmpxft_00005c13_00000000-9_load_parser_kernel.cpp1.ii".
+Compilation terminated.
+make: *** [default] Error 4
