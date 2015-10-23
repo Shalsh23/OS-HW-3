@@ -56,6 +56,10 @@ barrier_wait()
 			{
 				printf("\ncaught the signal\n");
 				fflush(stdout);
+
+				//reset the flag
+				sigrecieved[k] = 0;
+
 				break;
 			}
 				
@@ -67,6 +71,8 @@ barrier_wait()
 		int j;
 		for(j = 0; j < n; j++)
 		{
+			//reset the counter variable
+			counter = 0;
 			printf("\nwaking up everyone\n");
 			fflush(stdout);
 			pthread_kill(t[j],SIGUSR2);	
@@ -81,6 +87,8 @@ void *f()
 	printf("\nentering f\n");
 	barrier_wait();
 	printf("barrier reached\n");
+	barrier_wait();
+	printf("\nbarrier reached 2\n");
 	return;
 }
 
