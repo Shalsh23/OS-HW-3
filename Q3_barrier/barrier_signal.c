@@ -3,13 +3,30 @@
 #include <unistd.h>
 #include <signal.h>
 #include <pthread.h>
+#include "barrier.h"
 
-int n = 3;
-int counter = 0;
-pthread_t t[3];
-pthread_mutex_t counter_lock;
-struct sigaction act;
-int sigrecieved[3];
+// #define MAX 5 //Max number of threads calling barrier
+
+pthread_t *t; //array of tid
+int *sigrecieved;
+int n;
+
+void sighandler(int signum, siginfo_t *info, void *ptr);
+
+
+void mythread_barrier_init(mythread_barrier_t* pbarrier, mythread_barrierattr_t* pattr, unsigned count)
+{
+	n = count;
+	pbarrier->counter = 0;
+	t = (pthread_t*)malloc(sizeof(pthread_t)*count);
+	pthread_mutex_init(&(pbarrier->counter_lock),NULL);
+	memset(&(pbarrier->act), 0, sizeof(pbarrier->act));
+	pbarrier->act.sa_sigaction = sighandler;
+	pbarrier->act.sa_flags = SA_SIGINFO;
+	sigrecieved = (int*)malloc(sizeof(int)*count);
+
+	return;
+}
 
 void sighandler(int signum, siginfo_t *info, void *ptr)
 {
@@ -26,13 +43,15 @@ void sighandler(int signum, siginfo_t *info, void *ptr)
 	return;
 }
 
-barrier_wait()
+void mythread_barrier_wait(mythread_barrier_t* pbarrier)
 {
-	pthread_mutex_lock(&counter_lock);
-	counter++;
-	printf("\ncounter=%d\n",counter);
-	pthread_mutex_unlock(&counter_lock);
+	pthread_mutex_lock(&(pbarrier->counter_lock));
+	pbarrier->counter++;
+	printf("\ncounter=%d\n",pbarrier->counter);
+	pthread_mutex_unlock(&(pbarrier->counter_lock));
+
 	pthread_t curr_tid = pthread_self();
+	
 	int i,k;
 	for(i=0; i<n; i++)
 	{
@@ -45,12 +64,12 @@ barrier_wait()
 	// sigemptyset(&sig);
 	// sigaddset(&sig, SIGINT);
 
-	if(counter != n)
+	if(pbarrier->counter != n)
 	{
 		for(;;)
 		{
 			// int s = sigwait(&sig, &caught);
-			int s = sigaction(SIGUSR2, &act, NULL);
+			int s = sigaction(SIGUSR2, &(pbarrier->act), NULL);
 
 			if(sigrecieved[k]==1)
 			{
@@ -72,7 +91,7 @@ barrier_wait()
 		for(j = 0; j < n; j++)
 		{
 			//reset the counter variable
-			counter = 0;
+			pbarrier->counter = 0;
 			printf("\nwaking up everyone\n");
 			fflush(stdout);
 			pthread_kill(t[j],SIGUSR2);	
@@ -82,45 +101,10 @@ barrier_wait()
 	return;		
 }
 
-void *f()
+void mythread_barrier_destroy(mythread_barrier_t* pbarrier)
 {
-	printf("\nentering f\n");
-	barrier_wait();
-	printf("barrier reached\n");
-	barrier_wait();
-	printf("\nbarrier reached 2\n");
 	return;
 }
 
 
-int main()
-{
-	
 
-	pthread_mutex_init(&counter_lock, NULL);
-
-	memset(&act, 0, sizeof(act));
-	act.sa_sigaction = sighandler;
-	act.sa_flags = SA_SIGINFO;
-
-	// sigset_t set;
-	// sigemptyset(&set);
-	// sigaddset(&set, SIGINT);
-	// pthread_sigmask(SIG_BLOCK, &set, NULL);
-
-	int i;
-	for(i=0; i<n; i++)
-	{
-		pthread_create(&t[i], NULL, f, NULL);
-	}
-	
-
-	for(i=0; i<n; i++)
-	{
-		pthread_join(t[i], NULL);
-	}
-
-	printf("\n threads joined \n");
-
-	return 0;
-}
