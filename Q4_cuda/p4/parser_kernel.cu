@@ -443,6 +443,7 @@ CalcTfIdf(CalcFreqController *controller,  MyHashMapElement **hash_doc_token_tab
   bucket += threadIdx.x * HASH_DOC_TOKEN_BUCKET_SIZE;
   int numInBucket = bucket->countInBuc;
   float bucketSqrtSum = 0.0f;
+  __shared__ float shrd_bucket_sqrt_sum[HASH_DOC_TOKEN_TABLE_SIZE];
   while (numInBucket--)
     {
       unsigned long key = bucket->key;
@@ -459,29 +460,50 @@ CalcTfIdf(CalcFreqController *controller,  MyHashMapElement **hash_doc_token_tab
         }
       bucket++;
     }
-  bucket_sqrt_sum[sumindex] = bucketSqrtSum;
-}
+  shrd_bucket_sqrt_sum[threadIdx.x] = bucketSqrtSum;
 
-__global__ void 
-CalcTfIdf2(CalcFreqController *controller,  MyHashMapElement **hash_doc_token_tables, MyHashMapElement *occ_hash_table, int docs_count, float *bucket_sqrt_sum)
-{
+  __syncthreads();
+
+// }
+
+// __global__ void 
+// CalcTfIdf2(CalcFreqController *controller,  MyHashMapElement **hash_doc_token_tables, MyHashMapElement *occ_hash_table, int docs_count, float *bucket_sqrt_sum)
+// {
   // merge with CalcTfIdf(), use local reduction, add __syncthreads() where needed (and only there)
+ /*
   int sumindex = blockIdx.x * HASH_DOC_TOKEN_TABLE_SIZE;
   float sum = 0.0f;
     int i;
     for (i = 0; i < HASH_DOC_TOKEN_TABLE_SIZE; i++)
       sum += bucket_sqrt_sum[sumindex + i];
     bucket_sqrt_sum[sumindex] = sqrt(sum);
-}
+    */
+  __shared__ float shrd_sum[HASH_DOC_TOKEN_TABLE_SIZE];
+  shrd_sum[threadIdx.x] = 0.0f;
+  int i;
+  
+  if (threadIdx.x == 0)
+   {    
+      for (i = 0; i < HASH_DOC_TOKEN_TABLE_SIZE; i++)
+        shrd_sum[0] += shrd_bucket_sqrt_sum[i];
+      shrd_bucket_sqrt_sum[0] = sqrt(shrd_sum[0]);
+    }
 
-__global__ void 
-CalcTfIdf3(CalcFreqController *controller,  MyHashMapElement **hash_doc_token_tables, MyHashMapElement *occ_hash_table, int docs_count, float *bucket_sqrt_sum)
-{
+    __syncthreads();
+
+// __global__ void 
+// CalcTfIdf3(CalcFreqController *controller,  MyHashMapElement **hash_doc_token_tables, MyHashMapElement *occ_hash_table, int docs_count, float *bucket_sqrt_sum)
+// {
   // merge with CalcTfIdf()
-  MyHashMapElement *bucket;
-  int numInBucket;
+  // MyHashMapElement *bucket;
+  // int numInBucket;
   // 3. normalize
-  float magnitude = bucket_sqrt_sum[blockIdx.x * HASH_DOC_TOKEN_TABLE_SIZE];
+ 
+
+  // float magnitude = bucket_sqrt_sum[blockIdx.x * HASH_DOC_TOKEN_TABLE_SIZE];
+
+  float magnitude = shrd_bucket_sqrt_sum[0];
+
   bucket = hash_doc_token_tables[blockIdx.x];
   bucket += threadIdx.x * HASH_DOC_TOKEN_BUCKET_SIZE;
   numInBucket = bucket->countInBuc;
@@ -500,39 +522,58 @@ CalcSimilarities(MyHashMapElement **hash_doc_token_tables, MyHashMapElement *occ
   //  add __shared__ for similarity over all tokens in one doc, use reduction to write into similarity_matrix in 2nd loop
   MyHashMapElement *hashDoc_token_table1 = hash_doc_token_tables[blockIdx.x]; 
   MyHashMapElement *hashDoc_token_table2 = hash_doc_token_tables[blockIdx.y]; 
-  float sim_sum = 0.0f;
-  MyHashMapElement *bucket1 = hashDoc_token_table1 + threadIdx.x * HASH_DOC_TOKEN_BUCKET_SIZE;
+  
+  __shared__ float sim_sum [HASH_DOC_TOKEN_TABLE_SIZE];
+  sim_sum[threadIdx.x] = 0.0f;
 
-  int num_ele_1 = bucket1->countInBuc;
+  __shared__  MyHashMapElement *bucket1 [MAX_THREADS];
+  bucket1[threadIdx.x] = hashDoc_token_table1 + threadIdx.x * HASH_DOC_TOKEN_BUCKET_SIZE;
+
+  int num_ele_1 = bucket1[threadIdx.x]->countInBuc;
+
   while (num_ele_1--)
     {
-      MyHashMapElement *bucket2 = hashDoc_token_table2 + threadIdx.x * HASH_DOC_TOKEN_BUCKET_SIZE;
-      int num_ele_2 = bucket2->countInBuc;
+      __shared__ MyHashMapElement *bucket2 [MAX_THREADS];
+      bucket2 [threadIdx.x] = hashDoc_token_table2 + threadIdx.x * HASH_DOC_TOKEN_BUCKET_SIZE;
+      
+      int num_ele_2 = bucket2[threadIdx.x]->countInBuc;
       int find = 0;
+
       while (num_ele_2--)
         {
-          if ((bucket2->key == bucket1->key) && (bucket2->tokenLength == bucket1->tokenLength))
+          if ((bucket2[threadIdx.x]->key == bucket1[threadIdx.x]->key) && (bucket2[threadIdx.x]->tokenLength == bucket1[threadIdx.x]->tokenLength))
             {
               find = 1;
               break;
             }
-          bucket2++;
+          bucket2[threadIdx.x]++;
         }
       if (find)
-        sim_sum += bucket1->tfidf * bucket2->tfidf;
+        sim_sum[threadIdx.x] += bucket1[threadIdx.x]->tfidf * bucket2[threadIdx.x]->tfidf;
 
-      bucket1++;
+      bucket1[threadIdx.x]++;
+    }
+
+    __syncthreads();
+
+    int i;
+    if (threadIdx.x == 0) {
+      for (i=1; i<HASH_DOC_TOKEN_TABLE_SIZE; i++) {
+        sim_sum[0] += sim_sum[i];
+      }
     }
 
     // 2nd loop
     if (threadIdx.x == 0)
-      similarity_matrix[docs_count * blockIdx.x + blockIdx.y] = sim_sum;
+      similarity_matrix[docs_count * blockIdx.x + blockIdx.y] = sim_sum[0];
+  /*
     int i;
     for (i = 1; i < HASH_DOC_TOKEN_TABLE_SIZE; i++) {
       __syncthreads();
       if (threadIdx.x == i)
         similarity_matrix[docs_count * blockIdx.x + blockIdx.y] += sim_sum;
     }
+    */
 }
 
 /* This is only OK for small number of documents

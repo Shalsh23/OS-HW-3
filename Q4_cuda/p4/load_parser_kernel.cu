@@ -231,6 +231,7 @@ void load_parser_kernel(char *token_array, int tokens_count, int *doc_token_coun
     CUDA_SAFE_CALL(cudaMalloc((void**) &bucket_sqrt_sum_remote, docs_count * HASH_DOC_TOKEN_TABLE_SIZE * sizeof(float)));
     CalcTfIdf<<<dimGrid, dimBlock>>>(token_division_controller_remote, hash_doc_token_tables_remote, occ_hash_table_remote, docs_count, bucket_sqrt_sum_remote);
 
+    /*
     dimBlock.x = 1;
 
     CalcTfIdf2<<<dimGrid, dimBlock>>>(token_division_controller_remote, hash_doc_token_tables_remote, occ_hash_table_remote, docs_count, bucket_sqrt_sum_remote);
@@ -238,6 +239,8 @@ void load_parser_kernel(char *token_array, int tokens_count, int *doc_token_coun
     dimBlock.x = HASH_DOC_TOKEN_TABLE_SIZE;
 
     CalcTfIdf3<<<dimGrid, dimBlock>>>(token_division_controller_remote, hash_doc_token_tables_remote, occ_hash_table_remote, docs_count, bucket_sqrt_sum_remote);
+    */
+
     gettimeofday(&normalize_end, NULL); 
     long tfidftime = calcDiffTime(&normalize_start, &normalize_end);
     printf("tfidf = %ld\n", tfidftime);
