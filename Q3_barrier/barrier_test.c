@@ -48,6 +48,8 @@ int main()
 		pthread_join(t[i], NULL);
 	}
 
+	mythread_barrier_destroy(&b);
+
 	// printf("\n threads joined \n");fflush(stdout);
 
 	return 0;
