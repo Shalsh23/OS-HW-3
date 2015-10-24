@@ -10,7 +10,7 @@ pthread_t *t;
 
 void *f()
 {
-	printf("\nentering f\n");fflush(stdout);
+	// printf("\nentering f\n");fflush(stdout);
 	mythread_barrier_wait(&b);
 	// printf("barrier reached\n");fflush(stdout);
 	mythread_barrier_wait(&b);
@@ -35,7 +35,7 @@ int main()
 	int n = 2;
 	pthread_t t[n];
 	mythread_barrier_init(&b,NULL,n);
-	printf("\n creating thread \n");
+	// printf("\n creating thread \n");
 	int i;
 	for(i=0; i<n; i++)
 	{
@@ -48,7 +48,7 @@ int main()
 		pthread_join(t[i], NULL);
 	}
 
-	printf("\n threads joined \n");fflush(stdout);
+	// printf("\n threads joined \n");fflush(stdout);
 
 	return 0;
 }

@@ -48,7 +48,7 @@ void mythread_barrier_wait(mythread_barrier_t* pbarrier)
 {
 	pthread_mutex_lock(&(pbarrier->counter_lock));
 	pbarrier->counter++;
-	printf("\ncounter=%d\n",pbarrier->counter);
+	// printf("\ncounter=%d\n",pbarrier->counter);
 	pthread_mutex_unlock(&(pbarrier->counter_lock));
 
 	pthread_t curr_tid = pthread_self();
@@ -95,7 +95,7 @@ void mythread_barrier_wait(mythread_barrier_t* pbarrier)
 			if(sigrecieved[k]==1)
 			{
 				// printf("\ncaught the signal\n");
-				fflush(stdout);
+				// fflush(stdout);
 
 				//reset the flag
 				sigrecieved[k] = 0;
