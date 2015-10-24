@@ -10,11 +10,11 @@ pthread_t *t;
 
 void *f()
 {
-	printf("\nentering f\n");
+	printf("\nentering f\n");fflush(stdout);
 	mythread_barrier_wait(&b);
-	printf("barrier reached\n");
+	// printf("barrier reached\n");fflush(stdout);
 	mythread_barrier_wait(&b);
-	printf("\nbarrier reached 2\n");
+	// printf("\nbarrier reached 2\n");fflush(stdout);
 	return;
 }
 
@@ -32,8 +32,8 @@ int main()
 	// sigemptyset(&set);
 	// sigaddset(&set, SIGINT);
 	// pthread_sigmask(SIG_BLOCK, &set, NULL);
-	int n = 5;
-	// pthread_t t[n];
+	int n = 2;
+	pthread_t t[n];
 	mythread_barrier_init(&b,NULL,n);
 	printf("\n creating thread \n");
 	int i;
@@ -42,13 +42,13 @@ int main()
 		pthread_create(&t[i], NULL, f, NULL);
 	}
 	
-	printf("joining threads\n");
+	// printf("joining threads\n");
 	for(i=0; i<n; i++)
 	{
 		pthread_join(t[i], NULL);
 	}
 
-	printf("\n threads joined \n");
+	printf("\n threads joined \n");fflush(stdout);
 
 	return 0;
 }
