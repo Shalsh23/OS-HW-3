@@ -6,6 +6,7 @@
 #include "barrier.h"
 
 mythread_barrier_t b;
+pthread_t *t;
 
 void *f()
 {
@@ -32,15 +33,16 @@ int main()
 	// sigaddset(&set, SIGINT);
 	// pthread_sigmask(SIG_BLOCK, &set, NULL);
 	int n = 5;
+	// pthread_t t[n];
 	mythread_barrier_init(&b,NULL,n);
-
+	printf("\n creating thread \n");
 	int i;
 	for(i=0; i<n; i++)
 	{
-		pthread_create(t[i], NULL, f, NULL);
+		pthread_create(&t[i], NULL, f, NULL);
 	}
 	
-
+	printf("joining threads\n");
 	for(i=0; i<n; i++)
 	{
 		pthread_join(t[i], NULL);

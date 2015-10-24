@@ -7,7 +7,7 @@
 
 // #define MAX 5 //Max number of threads calling barrier
 
-pthread_t *t; //array of tid
+extern pthread_t *t; //array of tid
 int *sigrecieved;
 int n;
 
