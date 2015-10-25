@@ -7,14 +7,24 @@
 
 mythread_barrier_t b;
 pthread_t *t;
+int test = 0;
+pthread_mutex_t test_lock;
 
 void *f()
 {
 	// printf("\nentering f\n");fflush(stdout);
 	mythread_barrier_wait(&b);
+	pthread_mutex_lock(&test_lock);
+	test++;
+	pthread_mutex_unlock(&test_lock);
 	// printf("barrier reached\n");fflush(stdout);
+	
 	mythread_barrier_wait(&b);
+	pthread_mutex_lock(&test_lock);
+	test++;
+	pthread_mutex_unlock(&test_lock);
 	// printf("\nbarrier reached 2\n");fflush(stdout);
+	
 	return;
 }
 
@@ -35,6 +45,8 @@ int main()
 	int n = 2;
 	pthread_t t[n];
 	mythread_barrier_init(&b,NULL,n);
+	pthread_mutex_init(&test_lock,NULL);
+
 	// printf("\n creating thread \n");
 	int i;
 	for(i=0; i<n; i++)
@@ -49,6 +61,19 @@ int main()
 	}
 
 	mythread_barrier_destroy(&b);
+
+	// int f = 0;
+
+	// for(i=0; i<n; i++)
+	// {
+	// 	if(test[i]!=2)
+	// 		f = 1;
+	// }
+
+	if(test == 4)
+		printf("PASS\n");
+	else
+		printf("FAIL\n");
 
 	// printf("\n threads joined \n");fflush(stdout);
 
